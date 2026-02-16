@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+*{
+    top: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Press start 2p";
+}
+body{
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #696464;
+}
+header{
+    height: 200px;
+    background-color: #c43f1e;
+    padding: 2rem 0 2rem 0;
+}
+main{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem
+}
+.title-header h1{
+    color:white;
+    font-size: 40px;
+    text-shadow: 5px 5px 12px #000000;
+    margin-bottom: 15px;
+}
+.title-header h3{
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+header em{
+    color: #e2d6d6;
+    font-size: 18px;
+    text-shadow: 5px 5px 12px #696464;
+    -webkit-text-stroke: 1px black;
+}
+
+.main-game{
+    height: 60%;
+    width: 60%;
+    border: 2px solid blue;
+} 
+button{
+    cursor: pointer;
+}
+#roll-btn{
+    height: 80px;
+    width: 100px;
+    border: 1px solid black;
+    box-shadow: 5px 10px 10px 1px black;
+    border-radius: 5px;
+}
+
+#roll-btn:hover{
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 0 0 #696464;
+}
+#reset-btn{
+    height:50px;
+    width: 100px;
+    background-color: #c24444;
+    box-shadow: 5px 5px 5px 1px black;
+    margin-top:2rem;
+}
+#reset-btn:hover{
+    border: 1px solid black;
+    box-shadow: 0 0 0 0 #696464;
+}
+.icons-image{
+    height: 200px;
+    width: 200px;
+    margin-top: 10px;
+}
