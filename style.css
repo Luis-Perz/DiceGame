@@ -15,6 +15,7 @@ body{
 header{
     height: 200px;
     background-color: #c43f1e;
+    border-bottom:2px solid #000000;
     padding: 2rem 0 2rem 0;
 }
 main{

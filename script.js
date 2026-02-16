@@ -16,7 +16,7 @@ function winCheck(number){
     }else{
         displayResult("fire")
          document.getElementById('reset-btn').style.display = 'block'
-         document.getElementById('roll-btn').innerHTML = 'Better luck Next Time';
+         document.getElementById('roll-btn').innerHTML = 'BOOM!';
     }
 }
 function displayResult(result){
@@ -49,7 +49,7 @@ function gameReset(){
     const diceCont = document.getElementById('dice');
     diceCont.innerHTML = '';
     document.getElementById('reset-btn').style.display = 'none';
-    document.getElementById('roll-btn').innerHTML = 'Roll';
+    document.getElementById('roll-btn').innerHTML = 'ROLL';
 }
 function randomNumber(){
     
