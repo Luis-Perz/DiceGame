@@ -3,7 +3,7 @@ const diceImg = ['/img/dice-one.png', '/img/dice-two.png', '/img/dice-three.png'
     '/img/dice-four.png', '/img/dice-five.png', '/img/dice-six.png',
 ]
 document.getElementById('roll-btn').addEventListener('click', randomNumber)
-
+document.getElementById('reset-btn').addEventListener('click', gameReset);
 function getTotal(){
     total = numStorage.reduce((sum, num) => sum + num, 0)
     return total;
@@ -11,8 +11,12 @@ function getTotal(){
 function winCheck(number){
     if (number === 11){
        displayResult("confetti")
+       document.getElementById('reset-btn').style.display = 'block';
+       document.getElementById('roll-btn').innerHTML = 'You Win!'
     }else{
         displayResult("fire")
+         document.getElementById('reset-btn').style.display = 'block'
+         document.getElementById('roll-btn').innerHTML = 'Better luck Next Time';
     }
 }
 function displayResult(result){
@@ -39,6 +43,13 @@ function displayDice(number){
 
     diceCont.appendChild(diceImg);
     
+}
+function gameReset(){
+    numStorage = [];
+    const diceCont = document.getElementById('dice');
+    diceCont.innerHTML = '';
+    document.getElementById('reset-btn').style.display = 'none';
+    document.getElementById('roll-btn').innerHTML = 'Roll';
 }
 function randomNumber(){
     
