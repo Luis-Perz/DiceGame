@@ -54,20 +54,31 @@ function gameReset(){
     document.getElementById('reset-btn').style.display = 'none';
     document.getElementById('roll-btn').innerHTML = 'ROLL';
 }
-function randomNumber(){
-    
-    number = Math.floor(Math.random() * 6) + 1;
-    
-    if (numStorage.length !== 3){
-        numStorage.push(number)
-        displayDice(number)
-        console.log(numStorage)
+
+async function rollDice(){
+    try{
+        // const response = await fetch("https://node-dice-roller.azurewebsites.net/roll");
+        const response = await fetch("http://127.0.0.1:5501/roll");
+        const data = await response.json();
+        console.log(data)
+        if (data.msg !== ""){
+            console.log(data.msg);
+            return;
+        }
+        // API returns JSON value random number
+        let number = data.number;
+        if (numStorage.length!== 3){
+            numStorage.push(number);
+            displayDice(number);
+        }
+        if (numStorage.length === 3){
+            results = data.result;
+            winCheck(results);
+            
+        }
+     
     }
-    else if(numStorage.length === 3){
-        total = getTotal();
-        winCheck(total);
+    catch (e){
+        console.log("Error fetching dice rolls.")
     }
-    
 }
-
-
