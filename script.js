@@ -6,10 +6,10 @@ document.getElementById('reset-btn').addEventListener('click', gameReset);
 function winCheck(result){
     document.getElementById('reset-btn').style.display = 'block';
     if (result === "true"){
-       displayResult("confetti");
+       displayIcon(null, "confetti");
        document.getElementById('roll-btn').innerHTML = 'You Win!'
     }else{
-        displayResult("fire");
+        displayIcon(null, "fire");
         document.getElementById('roll-btn').innerHTML = 'BOOM!';
     }
 }
@@ -33,6 +33,7 @@ function displayIcon(number, result){
 }
 
 function gameReset(){
+    resetGame();
     const diceCont = document.getElementById('dice');
     diceCont.innerHTML = '';
     document.getElementById('reset-btn').style.display = 'none';
@@ -59,7 +60,7 @@ async function rollDice(){
 
         if (numStorage.length <= 3){
             numStorage.push(number);
-            displayIcon(number);
+            displayIcon(number, null);
         }
     }
     catch (e){
@@ -73,8 +74,7 @@ async function getResult(){
         const data = await response.json();
         const gameResult = data.result;
         if (data.result !== ""){
-            winCheck(gameResult); 
-            resetGame();   
+            winCheck(gameResult);   
         }
     }
     catch (e){
