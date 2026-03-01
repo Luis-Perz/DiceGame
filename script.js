@@ -1,4 +1,5 @@
 let numStorage = [];
+wakeServer();
 document.getElementById('roll-btn').addEventListener('click', rollDice)
 document.getElementById('reset-btn').addEventListener('click', gameReset);
 
@@ -37,7 +38,14 @@ function gameReset(){
     document.getElementById('reset-btn').style.display = 'none';
     document.getElementById('roll-btn').innerHTML = 'ROLL';
 }
-
+async function wakeServer(){
+    try{
+        await fetch("https://node-dice-roller.azurewebsites.net/roll");
+    }
+    catch (e){
+        console.log("Unable to wake server.");
+    }
+}
 async function rollDice(){
     try{
         const response = await fetch("https://node-dice-roller.azurewebsites.net/roll");
@@ -51,7 +59,7 @@ async function rollDice(){
 
         if (numStorage.length <= 3){
             numStorage.push(number);
-            displayDice(number);
+            displayIcon(number);
         }
     }
     catch (e){
